@@ -23,7 +23,7 @@ function css(done) {
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('.'))
         .pipe(dest('build/css'))
 
     done();
