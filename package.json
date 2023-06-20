@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/JosueP0721/Iglesia_Bautista_Betel_Web/issues"
   },
-  "homepage": "https://github.com/JosueP0721/Iglesia_Bautista_Betel_Web#readme"
+  "homepage": "https://github.com/JosueP0721/Iglesia_Bautista_Betel_Web#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.63.4"
+  }
 }
