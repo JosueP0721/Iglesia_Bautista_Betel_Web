@@ -1,0 +1,19 @@
+{
+  "name": "iglesia_proyect",
+  "version": "1.0.0",
+  "description": "WEB PAGE IGLESIA BAUTISTA BETEL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosueP0721/Iglesia_Bautista_Betel_Web.git"
+  },
+  "author": "Josué Palma Velarde Hinojosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JosueP0721/Iglesia_Bautista_Betel_Web/issues"
+  },
+  "homepage": "https://github.com/JosueP0721/Iglesia_Bautista_Betel_Web#readme"
+}
