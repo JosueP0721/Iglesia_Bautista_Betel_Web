@@ -1,15 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.none {
-    opacity: 1;
-    animation: fade 0.5s ease 0.2s 1 normal forwards;
-
-}
-// .none-display {
-//     display: none;
-// }
-
 .header {
     &__barra {
         display: flex;
@@ -55,7 +46,11 @@
         font-weight: 600;
         margin-right: 0;
         opacity: 0;
-        animation: fade 0.5s ease 0.2s 1 normal forwards;
+        animation-name: fade;
+        animation-duration: 0.5s;
+        animation-delay: 0.2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
 
         @include m.tablet {
             position: static;
@@ -70,6 +65,20 @@
 
     }
 }
+
+.none {
+    opacity: 1;
+    animation-name: fade-out;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.none-display {
+    display: none;
+}
+
 
 .navegacion {
     &__enlace {
