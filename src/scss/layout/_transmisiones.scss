@@ -45,7 +45,9 @@
     &__boton {
         @include m.boton(transparent, v.$blanco);
         display: inline-flex;
+        justify-content: center;
         gap: 1rem;
+        width: 17.5rem;
 
         path {
             fill: v.$blanco;
