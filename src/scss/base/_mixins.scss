@@ -34,6 +34,7 @@
 }
 @mixin boton($color, $texto) {
     background-color: $color;
+    border: 3px solid $texto;
     font-size: 2rem;
     padding: 1rem 3.5rem;
     border-radius: 1rem;
