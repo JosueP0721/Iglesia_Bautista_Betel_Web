@@ -61,6 +61,13 @@
     color: v.$negro;
 }
 
+.hover {
+    color: v.$blanco;
+    fill: v.$blanco;
+    cursor: pointer;
+    transition: all .3s;
+}
+
 .social {
     width: 10rem;
     text-align: center;
