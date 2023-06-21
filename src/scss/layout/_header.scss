@@ -52,6 +52,10 @@
         animation-fill-mode: forwards;
         animation-timing-function: ease;
 
+        &__none-display {
+            display: none;
+        }
+
         @include m.tablet {
             position: static;
             display: flex;
@@ -66,6 +70,7 @@
     }
 }
 
+
 .none {
     opacity: 1;
     animation-name: fade-out;
@@ -75,9 +80,6 @@
     animation-timing-function: ease;
 }
 
-.none-display {
-    display: none;
-}
 
 
 .navegacion {
