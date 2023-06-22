@@ -38,16 +38,26 @@
 
     &__botones {
         display: flex;
+        flex-direction: column;
         margin: 3rem 0;
         gap: 2rem;
+
+        @include m.tablet {
+            flex-direction: row
+        }
     }
 
     &__boton {
         @include m.boton(transparent, v.$blanco);
         display: inline-flex;
         justify-content: center;
+        align-items: center;
         gap: 1rem;
-        width: 17.5rem;
+        width: 25rem;
+
+        @include m.tablet {
+            width: 17.5rem;
+        }
 
         path {
             fill: v.$blanco;
