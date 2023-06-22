@@ -84,12 +84,18 @@
 
 .navegacion {
     &__enlace {
+        border: 2px solid v.$negro;
+        border-radius: 6px;
+        text-align: center;
         z-index: 10;
+        width: 25rem;
         color: v.$negro;
         transition: color .3s;
         padding: 1rem;
-
-        @include m.desktop {
+        
+        @include m.tablet {
+            width: auto;
+            border: none;
             color: v.$negro;
             transition: color .3s;
             padding: 1rem;
@@ -97,8 +103,8 @@
         }
 
         &:hover {
-            border: 1px solid v.$negro;
-            padding: 9px;
+            border: 2px solid v.$negro;
+            padding: 1rem;
             border-radius: 6px;
             background-color: v.$negro;
             color: v.$blanco;
