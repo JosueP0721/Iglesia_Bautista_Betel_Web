@@ -121,7 +121,7 @@
         }
     }
     
-
+    
     &__boton {
         display: flex;
         flex-direction: column;
@@ -134,7 +134,7 @@
         margin-left: auto;
         margin-right: 0;
         z-index: 10;
-
+        
         > div {
             background: v.$negro;  
             height: 2px;
@@ -143,12 +143,17 @@
             transition: all .5s;
             transform-origin: left;
         }
-
+        
         @include m.tablet {
             display: none;
         }
     }
     
+}
+
+.active {
+    background-color: v.$negro;
+    color: v.$blanco;
 }
 
 @keyframes fade {
