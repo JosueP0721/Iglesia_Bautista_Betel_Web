@@ -15,7 +15,7 @@
         -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
         
-        @include m.tablet {
+        @include m.desktop {
             padding: 1rem 3rem;
             max-width: 100%;
             width: 100%;
@@ -56,7 +56,7 @@
             display: none;
         }
 
-        @include m.tablet {
+        @include m.desktop {
             position: static;
             display: flex;
             flex-direction: row;
@@ -84,12 +84,18 @@
 
 .navegacion {
     &__enlace {
+        border: 2px solid v.$negro;
+        border-radius: 6px;
+        text-align: center;
         z-index: 10;
+        width: 25rem;
         color: v.$negro;
         transition: color .3s;
         padding: 1rem;
-
+        
         @include m.desktop {
+            width: auto;
+            border: none;
             color: v.$negro;
             transition: color .3s;
             padding: 1rem;
@@ -97,8 +103,8 @@
         }
 
         &:hover {
-            border: 1px solid v.$negro;
-            padding: 9px;
+            border: 2px solid v.$negro;
+            padding: 1rem;
             border-radius: 6px;
             background-color: v.$negro;
             color: v.$blanco;
@@ -115,7 +121,7 @@
         }
     }
     
-
+    
     &__boton {
         display: flex;
         flex-direction: column;
@@ -128,7 +134,7 @@
         margin-left: auto;
         margin-right: 0;
         z-index: 10;
-
+        
         > div {
             background: v.$negro;  
             height: 2px;
@@ -137,12 +143,17 @@
             transition: all .5s;
             transform-origin: left;
         }
-
-        @include m.tablet {
+        
+        @include m.desktop {
             display: none;
         }
     }
     
+}
+
+.active {
+    background-color: v.$negro;
+    color: v.$blanco;
 }
 
 @keyframes fade {
