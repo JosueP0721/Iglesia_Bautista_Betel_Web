@@ -2,176 +2,291 @@
 @use 'base/mixins' as m;
 
 .header {
-    &__barra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: v.$blanco;
+    box-shadow: 0 2px 16px hsla(220, 32%, 8%, .8);
+    z-index: 10;
+    
+    &__nav {
+        height: 8rem;
+        max-width: 140rem;
+    }
+}
+
+.nav {
+    &__menu {
+        opacity: 0;
+        top: 0;
+        transition: opacity .3s, top .3s;
+    }
+    &__data {
+        height: 100%;
         display: flex;
-        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        gap: 1rem;
-        position: fixed;
-        background-color: v.$blanco;
+    }
+
+    &__logo {
+        display: inline-flex;
+        align-items: center;
+    }
+    &__toggle {
+        position: relative;
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+
+    &__burger,
+    &__close {
+        position: absolute;
+        width: max-content;
+        height: max-content;
+        inset: 0;
+        margin: auto;
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: opacity .1s, transform .4s;
+    }
+
+    &__close {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1118px) {
+    .nav__menu {
+        position: absolute;
+        left: 0;
+        top: 8rem;
         width: 100%;
-        padding: 1rem 2rem;
-        -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
-        box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
-        
-        @include m.desktop {
-            padding: 1rem 3rem;
-            max-width: 100%;
-            width: 100%;
-            flex-direction: row;
-            justify-content: space-between;
-            position: fixed;
-            background-color: v.$blanco;
+        height: calc(100vh - 8rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s opacity .3s;
+
+        &::-webkit-scrollbar {
+            width: 0;
         }
     }
+}
 
-    &__icono {
-        z-index: 10;
+.nav {
+    &__list {
+        background-color: v.$blanco;
+        padding-top: 1rem;
+        list-style: none;
     }
 
-    &__navegacion {
+    &__link {
+        color: v.$negro;
         background-color: v.$blanco;
+        font-weight: 500;
+        padding: 1.25rem 1.5rem;
         display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        gap: 2rem;
-        font-size: 1.75rem;
-        font-weight: 600;
-        margin-right: 0;
-        opacity: 0;
-        animation-name: fade;
-        animation-duration: 0.5s;
-        animation-delay: 0.2s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
+        transition: background-color .3s;
+        &:hover {
+            background-color: v.$gris;
+        }
+    }
+}
 
-        &__none-display {
+.show-menu {
+    opacity: 1;
+    top: 8rem ;
+    pointer-events: initial;
+    transition: opacity .3s, top .3s;
+}
+
+.show-icon .nav__burger {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+.show-icon .nav__close {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+.dropdown {
+    
+    &__item {
+        cursor: pointer;
+    }
+
+    &__arrow {
+        font-size: 1.25rem;
+        font-weight: initial;
+        transition: transform .4s;
+    }
+
+    &__link,
+    &__sublink {
+        padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+        color: v.$negro;
+        background-color: v.$gris;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: .5rem;
+        font-weight: 500;
+        transition: background-color .3s;
+    }
+
+    &__link:hover,
+    &__sublink:hover {
+        background-color: v.$blanco;
+    }
+
+    &__menu,
+    &__submenu {
+        max-height: 0;
+        overflow: hidden;
+        list-style: none;
+        transition: max-height .4s ease-out;
+    }
+
+    &__item:hover &__menu,
+    &__subitem:hover &__submenu {
+        max-height: 1000px;
+        transition: max-height .4s ease-in;
+    }
+
+    &__item:hover &__arrow {
+        transform: rotate(180deg);
+    }
+
+    &__add {
+        margin-left: auto;
+    }
+    
+    &__sublink {
+        background-color: v.$gris-oscuro-claro;
+        padding-left: 5.5rem;
+    }
+}
+
+.show-submenu {
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+.show-add .dropdown__arrow,
+.show-add .dropdown__add{
+    transform: rotate(180deg);
+}
+
+.show-subitem {
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+@media screen and (min-width: 1118px) {
+    .header__nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav {
+        &__toggle {
             display: none;
         }
 
-        @include m.desktop {
-            position: static;
+        &__list {
+            height: 100%;
             display: flex;
-            flex-direction: row;
-            width: auto;
-            gap: 3rem;
-            font-weight: 600;
-            padding-bottom: 0;
-            margin: 0;
+            column-gap: 3rem;
         }
 
-    }
-}
+        &__link {
+            height: 100%;
+            padding: 0;
+            justify-content: initial;
+            column-gap: .45rem;
 
-
-.none {
-    opacity: 1;
-    animation-name: fade-out;
-    animation-duration: 0.5s;
-    animation-delay: 0.2s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
-}
-
-
-
-.navegacion {
-    &__enlace {
-        border: 2px solid v.$negro;
-        border-radius: 6px;
-        text-align: center;
-        z-index: 10;
-        width: 25rem;
-        color: v.$negro;
-        transition: color .3s;
-        padding: 1rem;
-        
-        @include m.desktop {
-            width: auto;
-            border: none;
-            color: v.$negro;
-            transition: color .3s;
-            padding: 1rem;
-
-        }
-
-        &:hover {
-            border: 2px solid v.$negro;
-            padding: 1rem;
-            border-radius: 6px;
-            background-color: v.$negro;
-            color: v.$blanco;
-        }
-
-        &:hover {
-            @include m.desktop {
-                border: 1px solid v.$negro;
-                padding: 9px;
-                border-radius: 6px;
-                background-color: v.$negro;
-                color: v.$blanco;
+            &:hover {
+                background-color: transparent;
             }
         }
-    }
-    
-    
-    &__boton {
-        display: flex;
-        flex-direction: column;
-        width: 3rem;
-        height: 3rem;
-        cursor: pointer;
-        border: 0;
-        background: transparent;
-        gap: 1rem;
-        margin-left: auto;
-        margin-right: 0;
-        z-index: 10;
-        
-        > div {
-            background: v.$negro;  
-            height: 2px;
-            width: 100%;
-            border-radius: .5rem;
-            transition: all .5s;
-            transform-origin: left;
-        }
-        
-        @include m.desktop {
-            display: none;
+
+        &__menu {
+            opacity: 1;
         }
     }
-    
-}
+    .dropdown {
+        &__item,
+        &__subitem {
+            position: relative;
+        }
 
-.active {
-    background-color: v.$negro;
-    color: v.$blanco;
-}
+        &__menu,
+        &__submenu {
+            max-height: initial;
+            overflow: initial;
+            position: absolute;
+            left: 0;
+            top: 6.5rem;
+            border-radius: .8rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s, top .3s;
+            -webkit-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.75);
+            box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.75);
+        }
 
-@keyframes fade {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-    
-}
+        &__menu > li:first-child >a:first-child,
+        &__submenu > li:first-child >a:first-child {
+            border-top-right-radius: .8rem;
+            border-top-left-radius: .8rem;
+        }
 
-@keyframes fade-out {
-    from {
-        opacity: 1;
+        &__menu > li:last-child >a:last-child,
+        &__menu > li:last-child > .dropdown__link,
+        &__submenu > li:last-child >a:last-child {
+            border-bottom-right-radius: .8rem;
+            border-bottom-left-radius: .8rem;
+        }
+
+        &__link,
+        &__sublink {
+            background-color: v.$blanco;
+            padding-inline: 1rem 2rem;
+
+            &:hover {
+                background-color: v.$gris;
+            }
+        }
+
+        &__sublink {
+            width: 15rem;
+        }
+
+        &__subitem .dropdown__link {
+            padding-inline: 1rem;
+        }
+
+        &__submenu {
+            position: absolute;
+            left: 100%;
+            top: .6rem;
+        }
+
+        &__item:hover .dropdown__menu {
+            opacity: 1;
+            top: 6rem;
+            pointer-events: initial;
+            transition: top .3s;
+        }
+
+        &__subitem:hover &__submenu {
+            opacity: 1;
+            top: 0;
+            pointer-events: initial;
+            transition: top .3s;
+        }
     }
-    to {
-        opacity: 0;
-    }
-    
 }
