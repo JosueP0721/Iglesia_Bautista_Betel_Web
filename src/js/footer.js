@@ -1,24 +1,11 @@
-const menuHamburger = document.querySelector(".navegacion__boton");
-const navLinks = document.querySelector(".header__navegacion");
 const contenedorGmail = document.querySelector(".red__gmail");
 const contenedorFacebook = document.querySelector(".red__facebook");
 const contenedorYoutube = document.querySelector(".red__youtube");
 const contenedorInstagram = document.querySelector(".red__instagram");
 const contenedorHijo = document.querySelectorAll('.red__nombre');
 const contenedorIcono = document.querySelectorAll('.social path');
-const contenedorCirculo = document.querySelector('.social circle');
+const contenedorCirculo = document.querySelector('.social circle'); 
 
-menuHamburger.addEventListener('click',()  =>{ 
-    if(navLinks.classList.contains('header__navegacion__none-display')) {
-        navLinks.classList.remove('header__navegacion__none-display');
-    } else {
-        navLinks.classList.add('none');
-        setTimeout(() => {
-            navLinks.classList.add('header__navegacion__none-display');
-            navLinks.classList.remove('none');
-          }, 800);
-    }
-})
 function agregarEventoHover(contenedor, contH, cntI) {
     contenedor.addEventListener('mouseover', () => {
       contH.classList.add('hover');
@@ -42,4 +29,3 @@ const contenedores = [
   for (let i = 0; i < contenedores.length; i++) {
     agregarEventoHover(contenedores[i].contenedor, contenedores[i].hijo, contenedores[i].icono);
   }
-  
