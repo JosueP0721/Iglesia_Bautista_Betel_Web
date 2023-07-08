@@ -116,7 +116,9 @@
     &__item {
         cursor: pointer;
     }
-
+    &__subitem {
+        z-index: 10;
+    }
     &__arrow {
         font-size: 1.25rem;
         font-weight: initial;
@@ -136,9 +138,13 @@
         transition: background-color .3s;
     }
 
+    &__link-enlace {
+        color: v.$negro;
+    }
+
     &__link:hover,
     &__sublink:hover {
-        background-color: v.$blanco;
+        background-color: transparent;
     }
 
     &__menu,
@@ -161,6 +167,7 @@
 
     &__add {
         margin-left: auto;
+        z-index: 20;
     }
     
     &__sublink {
@@ -207,9 +214,11 @@
             padding: 0;
             justify-content: initial;
             column-gap: .45rem;
+            background-color: transparent;
 
             &:hover {
                 background-color: transparent;
+                color: v.$gris-oscuro;
             }
         }
 
@@ -233,10 +242,11 @@
             border-radius: .8rem;
             opacity: 0;
             pointer-events: none;
+            background-color: v.$blanco;
             transition: opacity .3s, top .3s;
-            -webkit-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.75);
-            -moz-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.75);
-            box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: -6px -6px 5px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: -6px -6px 5px 0px rgba(0,0,0,0.75);
+            box-shadow: -6px -6px 5px 0px rgba(0,0,0,0.75);
         }
 
         &__menu > li:first-child >a:first-child,
@@ -251,29 +261,44 @@
             border-bottom-right-radius: .8rem;
             border-bottom-left-radius: .8rem;
         }
-
+        
         &__link,
         &__sublink {
-            background-color: v.$blanco;
-            padding-inline: 1rem 2rem;
-
+            background-color: transparent;
+            padding-inline: 1rem;
+            
             &:hover {
                 background-color: v.$gris;
             }
         }
-
-        &__sublink {
-            width: 15rem;
+        
+        &__link {
+            width: 25rem;
+            z-index: 1;
+            
+            &-enlace {
+                color: v.$negro;
+            }
         }
-
+        
+        &__sublink {
+            width: 20rem;
+        }
+        
         &__subitem .dropdown__link {
             padding-inline: 1rem;
+        }
+        &__subitem:first-child .dropdown__link:first-child {
+            border-top-right-radius: .8rem;
+            border-top-left-radius: .8rem;
         }
 
         &__submenu {
             position: absolute;
             left: 100%;
             top: .6rem;
+            background-color: v.$blanco;
+            z-index: 99;
         }
 
         &__item:hover .dropdown__menu {

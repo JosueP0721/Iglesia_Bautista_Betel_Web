@@ -23,5 +23,9 @@ const showSubMenu = (toggleId, navId) => {
 
 showMenu('nav-toggle', 'nav-menu');
 showSubMenu('nav-subtoggle', 'nav-submenu');
-showSubMenu('nav-subtoggle-1', 'nav-submenu-1')
-showSubMenu('nav-subtoggle-2', 'nav-submenu-2')
+showSubMenu('nav-subtoggle-1', 'nav-submenu-1');
+showSubMenu('nav-subtoggle-2', 'nav-submenu-2');
+showSubMenu('nav-subtoggle-3', 'nav-submenu-3');
+showSubMenu('nav-subtoggle-4', 'nav-submenu-4');
+showSubMenu('nav-subtoggle-5', 'nav-submenu-5');
+showSubMenu('nav-subtoggle-6', 'nav-submenu-6');
