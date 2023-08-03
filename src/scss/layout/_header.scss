@@ -27,6 +27,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid v.$gris;
     }
 
     &__logo {
@@ -79,6 +80,7 @@
         background-color: v.$blanco;
         padding-top: 1rem;
         list-style: none;
+        box-shadow: 0 2px 16px hsla(220, 32%, 8%, .8);
     }
 
     &__link {
@@ -207,6 +209,7 @@
             display: flex;
             column-gap: 3rem;
             padding-top: 0;
+            box-shadow: none;
         }
 
         &__link {
